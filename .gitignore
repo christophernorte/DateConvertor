@@ -4,7 +4,7 @@
 ## Get latest from https://github.com/github/gitignore/blob/master/VisualStudio.gitignore
 
 # User-specific files
-*.suo
+.suo
 *.user
 *.userosscache
 *.sln.docstates
@@ -13,6 +13,8 @@
 *.pdb
 *.cache
 .suo
+DateConvertor/obj/Debug/
+DateConvertor/bin/Debug/
 
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
@@ -28,6 +30,11 @@ bld/
 [Bb]in/
 [Oo]bj/
 [Ll]og/
+
+*/**/bin/Debug
+*/**/bin/Release
+*/**/obj/Debug
+*/**/obj/Release
 
 # Visual Studio 2015 cache/options directory
 .vs/
