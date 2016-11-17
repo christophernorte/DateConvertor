@@ -54,5 +54,26 @@ namespace DateConvertor
             dtDateTime = dtDateTime.AddSeconds(unixTimeStamp).ToLocalTime();
             return dtDateTime;
         }
+
+        private void Calendar_SelectedDatesChanged(object sender, SelectionChangedEventArgs e)
+        {
+            DateTime? datetime = calendarPicker.SelectedDate;
+
+            if(datetime.HasValue)
+            {
+                long timestamp = DateTimeToUnixTimestamp(datetime.Value);
+                lblTimestampResult.Text = Convert.ToString(timestamp);
+
+            }
+
+        }
+
+        private long DateTimeToUnixTimestamp(DateTime dateTime)
+        {
+            var date = dateTime.ToUniversalTime();
+            var ticks = date.Ticks - new DateTime(1970, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc).Ticks;
+            var ts = ticks / TimeSpan.TicksPerSecond;
+            return ts;
+        }
     }
 }

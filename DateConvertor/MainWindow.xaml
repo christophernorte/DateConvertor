@@ -5,9 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DateConvertor"
         mc:Ignorable="d"
-        Title="MainWindow" Height="200" Width="300">
+        Title="MainWindow" Height="300" Width="300">
     <Grid>
-        
+
         <TabControl x:Name="tabControl">
             <TabItem Header="From Timestamp">
                 <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
@@ -17,9 +17,12 @@
                 </StackPanel>
             </TabItem>
             <TabItem Header="From Calendar">
-                <Grid Background="#FFE5E5E5"/>
+                <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                    <Calendar x:Name="calendarPicker" SelectedDatesChanged="Calendar_SelectedDatesChanged" />
+                    <Label x:Name="lblTimestampSection" Content="Timestamp" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                    <TextBox  x:Name="lblTimestampResult" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="Transparent" BorderThickness="0" Text="{Binding Text, Mode=OneWay}" IsReadOnly="True" TextWrapping="Wrap"/>
+                </StackPanel>
             </TabItem>
         </TabControl>
-
     </Grid>
 </Window>
